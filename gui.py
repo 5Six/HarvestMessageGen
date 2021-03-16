@@ -1,8 +1,9 @@
 from tkinter import *
+from tkinter import scrolledtext
 
 root = Tk()
 root.title('Harvest Message Generator')
-root.geometry("470x400")
+root.geometry("515x500")
 
 AugLabel = Label(root, text="Augment")
 RemLabel = Label(root, text="Remove")
@@ -20,15 +21,25 @@ AugPriceLabel = Label(root, text="$")
 AugAmountLabel.grid(row=1, column=1)
 AugPriceLabel.grid(row=1, column=2)
 
-AugSpeedCheck = Checkbutton(root, text="Speed", justify=LEFT)
-AugLifeCheck = Checkbutton(root, text="Life", justify=LEFT)
-AugFireCheck = Checkbutton(root, text="Fire", justify=LEFT)
-AugColdCheck = Checkbutton(root, text="Cold", justify=LEFT)
-AugLightCheck = Checkbutton(root, text="Lightning", justify=LEFT)
-AugChaosCheck = Checkbutton(root, text="Chaos", justify=LEFT)
-AugPhysCheck = Checkbutton(root, text="Physical", justify=LEFT)
-AugAttCheck = Checkbutton(root, text="Attack", justify=LEFT)
-AugCastCheck = Checkbutton(root, text="Caster", justify=LEFT)
+AugSpeedVar = IntVar()
+AugLifeVar = IntVar()
+AugFireVar = IntVar()
+AugColdVar = IntVar()
+AugLightVar = IntVar()
+AugChaosVar = IntVar()
+AugPhysVar = IntVar()
+AugAttVar = IntVar()
+AugCastVar = IntVar()
+
+AugSpeedCheck = Checkbutton(root, text="Speed", variable=AugSpeedVar)  # #CFEDA5
+AugLifeCheck = Checkbutton(root, text="Life", variable=AugLifeVar)  # #C96D6D
+AugFireCheck = Checkbutton(root, text="Fire", variable=AugFireVar)
+AugColdCheck = Checkbutton(root, text="Cold", variable=AugColdVar)
+AugLightCheck = Checkbutton(root, text="Lightning", variable=AugLightVar)
+AugChaosCheck = Checkbutton(root, text="Chaos", variable=AugChaosVar)
+AugPhysCheck = Checkbutton(root, text="Physical", variable=AugPhysVar)
+AugAttCheck = Checkbutton(root, text="Attack", variable=AugAttVar)
+AugCastCheck = Checkbutton(root, text="Caster", variable=AugCastVar)
 
 AugSpeedCheck.grid(row=2, column=0, padx=3, sticky=W)
 AugLifeCheck.grid(row=3, column=0, padx=3, sticky=W)
@@ -40,15 +51,25 @@ AugPhysCheck.grid(row=8, column=0, padx=3, sticky=W)
 AugAttCheck.grid(row=9, column=0, padx=3, sticky=W)
 AugCastCheck.grid(row=10, column=0, padx=3, sticky=W)
 
-AugSpeedAmountEntry = Entry(root, width=3)
-AugLifeAmountEntry = Entry(root, width=3)
-AugFireAmountEntry = Entry(root, width=3)
-AugColdAmountEntry = Entry(root, width=3)
-AugLightAmountEntry = Entry(root, width=3)
-AugChaosAmountEntry = Entry(root, width=3)
-AugPhysAmountEntry = Entry(root, width=3)
-AugAttAmountEntry = Entry(root, width=3)
-AugCastAmountEntry = Entry(root, width=3)
+AugSpeedAmountVar = StringVar()
+AugLifeAmountVar = StringVar()
+AugFireAmountVar = StringVar()
+AugColdAmountVar = StringVar()
+AugLightAmountVar = StringVar()
+AugChaosAmountVar = StringVar()
+AugPhysAmountVar = StringVar()
+AugAttAmountVar = StringVar()
+AugCastAmountVar = StringVar()
+
+AugSpeedAmountEntry = Entry(root, width=3, textvariable=AugSpeedAmountVar)
+AugLifeAmountEntry = Entry(root, width=3, textvariable=AugLifeAmountVar)
+AugFireAmountEntry = Entry(root, width=3, textvariable=AugFireAmountVar)
+AugColdAmountEntry = Entry(root, width=3, textvariable=AugColdAmountVar)
+AugLightAmountEntry = Entry(root, width=3, textvariable=AugLightAmountVar)
+AugChaosAmountEntry = Entry(root, width=3, textvariable=AugChaosAmountVar)
+AugPhysAmountEntry = Entry(root, width=3, textvariable=AugPhysAmountVar)
+AugAttAmountEntry = Entry(root, width=3, textvariable=AugAttAmountVar)
+AugCastAmountEntry = Entry(root, width=3, textvariable=AugCastAmountVar)
 
 AugSpeedAmountEntry.grid(row=2, column=1, padx=3)
 AugLifeAmountEntry.grid(row=3, column=1)
@@ -60,15 +81,25 @@ AugPhysAmountEntry.grid(row=8, column=1)
 AugAttAmountEntry.grid(row=9, column=1)
 AugCastAmountEntry.grid(row=10, column=1)
 
-AugSpeedPriceEntry = Entry(root, width=5)
-AugLifePriceEntry = Entry(root, width=5)
-AugFirePriceEntry = Entry(root, width=5)
-AugColdPriceEntry = Entry(root, width=5)
-AugLightPriceEntry = Entry(root, width=5)
-AugChaosPriceEntry = Entry(root, width=5)
-AugPhysPriceEntry = Entry(root, width=5)
-AugAttPriceEntry = Entry(root, width=5)
-AugCastPriceEntry = Entry(root, width=5)
+AugSpeedPriceVar = StringVar()
+AugLifePriceVar = StringVar()
+AugFirePriceVar = StringVar()
+AugColdPriceVar = StringVar()
+AugLightPriceVar = StringVar()
+AugChaosPriceVar = StringVar()
+AugPhysPriceVar = StringVar()
+AugAttPriceVar = StringVar()
+AugCastPriceVar = StringVar()
+
+AugSpeedPriceEntry = Entry(root, width=5, textvariable=AugSpeedPriceVar)
+AugLifePriceEntry = Entry(root, width=5, textvariable=AugLifePriceVar)
+AugFirePriceEntry = Entry(root, width=5, textvariable=AugFirePriceVar)
+AugColdPriceEntry = Entry(root, width=5, textvariable=AugColdPriceVar)
+AugLightPriceEntry = Entry(root, width=5, textvariable=AugLightPriceVar)
+AugChaosPriceEntry = Entry(root, width=5, textvariable=AugChaosPriceVar)
+AugPhysPriceEntry = Entry(root, width=5, textvariable=AugPhysPriceVar)
+AugAttPriceEntry = Entry(root, width=5, textvariable=AugAttPriceVar)
+AugCastPriceEntry = Entry(root, width=5, textvariable=AugCastPriceVar)
 
 AugSpeedPriceEntry.grid(row=2, column=2, padx=3)
 AugLifePriceEntry.grid(row=3, column=2)
@@ -91,15 +122,25 @@ RemPriceLabel = Label(root, text="$")
 RemAmountLabel.grid(row=1, column=4)
 RemPriceLabel.grid(row=1, column=5)
 
-RemSpeedCheck = Checkbutton(root, text="Speed", justify=LEFT)
-RemLifeCheck = Checkbutton(root, text="Life", justify=LEFT)
-RemFireCheck = Checkbutton(root, text="Fire", justify=LEFT)
-RemColdCheck = Checkbutton(root, text="Cold", justify=LEFT)
-RemLightCheck = Checkbutton(root, text="Lightning", justify=LEFT)
-RemChaosCheck = Checkbutton(root, text="Chaos", justify=LEFT)
-RemPhysCheck = Checkbutton(root, text="Physical", justify=LEFT)
-RemAttCheck = Checkbutton(root, text="Attack", justify=LEFT)
-RemCastCheck = Checkbutton(root, text="Caster", justify=LEFT)
+RemSpeedVar = IntVar()
+RemLifeVar = IntVar()
+RemFireVar = IntVar()
+RemColdVar = IntVar()
+RemLightVar = IntVar()
+RemChaosVar = IntVar()
+RemPhysVar = IntVar()
+RemAttVar = IntVar()
+RemCastVar = IntVar()
+
+RemSpeedCheck = Checkbutton(root, text="Speed", variable=RemSpeedVar)
+RemLifeCheck = Checkbutton(root, text="Life", variable=RemLifeVar)
+RemFireCheck = Checkbutton(root, text="Fire", variable=RemFireVar)
+RemColdCheck = Checkbutton(root, text="Cold", variable=RemColdVar)
+RemLightCheck = Checkbutton(root, text="Lightning", variable=RemLightVar)
+RemChaosCheck = Checkbutton(root, text="Chaos", variable=RemChaosVar)
+RemPhysCheck = Checkbutton(root, text="Physical", variable=RemPhysVar)
+RemAttCheck = Checkbutton(root, text="Attack", variable=RemAttVar)
+RemCastCheck = Checkbutton(root, text="Caster", variable=RemCastVar)
 
 RemSpeedCheck.grid(row=2, column=3, padx=3, sticky=W)
 RemLifeCheck.grid(row=3, column=3, padx=3, sticky=W)
@@ -111,15 +152,25 @@ RemPhysCheck.grid(row=8, column=3, padx=3, sticky=W)
 RemAttCheck.grid(row=9, column=3, padx=3, sticky=W)
 RemCastCheck.grid(row=10, column=3, padx=3, sticky=W)
 
-RemSpeedAmountEntry = Entry(root, width=3)
-RemLifeAmountEntry = Entry(root, width=3)
-RemFireAmountEntry = Entry(root, width=3)
-RemColdAmountEntry = Entry(root, width=3)
-RemLightAmountEntry = Entry(root, width=3)
-RemChaosAmountEntry = Entry(root, width=3)
-RemPhysAmountEntry = Entry(root, width=3)
-RemAttAmountEntry = Entry(root, width=3)
-RemCastAmountEntry = Entry(root, width=3)
+RemSpeedAmountVar = StringVar()
+RemLifeAmountVar = StringVar()
+RemFireAmountVar = StringVar()
+RemColdAmountVar = StringVar()
+RemLightAmountVar = StringVar()
+RemChaosAmountVar = StringVar()
+RemPhysAmountVar = StringVar()
+RemAttAmountVar = StringVar()
+RemCastAmountVar = StringVar()
+
+RemSpeedAmountEntry = Entry(root, width=3, textvariable=RemSpeedAmountVar)
+RemLifeAmountEntry = Entry(root, width=3, textvariable=RemLifeAmountVar)
+RemFireAmountEntry = Entry(root, width=3, textvariable=RemFireAmountVar)
+RemColdAmountEntry = Entry(root, width=3, textvariable=RemColdAmountVar)
+RemLightAmountEntry = Entry(root, width=3, textvariable=RemLightAmountVar)
+RemChaosAmountEntry = Entry(root, width=3, textvariable=RemChaosAmountVar)
+RemPhysAmountEntry = Entry(root, width=3, textvariable=RemPhysAmountVar)
+RemAttAmountEntry = Entry(root, width=3, textvariable=RemAttAmountVar)
+RemCastAmountEntry = Entry(root, width=3, textvariable=RemCastAmountVar)
 
 RemSpeedAmountEntry.grid(row=2, column=4, padx=3)
 RemLifeAmountEntry.grid(row=3, column=4)
@@ -131,15 +182,25 @@ RemPhysAmountEntry.grid(row=8, column=4)
 RemAttAmountEntry.grid(row=9, column=4)
 RemCastAmountEntry.grid(row=10, column=4)
 
-RemSpeedPriceEntry = Entry(root, width=5)
-RemLifePriceEntry = Entry(root, width=5)
-RemFirePriceEntry = Entry(root, width=5)
-RemColdPriceEntry = Entry(root, width=5)
-RemLightPriceEntry = Entry(root, width=5)
-RemChaosPriceEntry = Entry(root, width=5)
-RemPhysPriceEntry = Entry(root, width=5)
-RemAttPriceEntry = Entry(root, width=5)
-RemCastPriceEntry = Entry(root, width=5)
+RemSpeedPriceVar = StringVar()
+RemLifePriceVar = StringVar()
+RemFirePriceVar = StringVar()
+RemColdPriceVar = StringVar()
+RemLightPriceVar = StringVar()
+RemChaosPriceVar = StringVar()
+RemPhysPriceVar = StringVar()
+RemAttPriceVar = StringVar()
+RemCastPriceVar = StringVar()
+
+RemSpeedPriceEntry = Entry(root, width=5, textvariable=RemSpeedPriceVar)
+RemLifePriceEntry = Entry(root, width=5, textvariable=RemLifePriceVar)
+RemFirePriceEntry = Entry(root, width=5, textvariable=RemFirePriceVar)
+RemColdPriceEntry = Entry(root, width=5, textvariable=RemColdPriceVar)
+RemLightPriceEntry = Entry(root, width=5, textvariable=RemLightPriceVar)
+RemChaosPriceEntry = Entry(root, width=5, textvariable=RemChaosPriceVar)
+RemPhysPriceEntry = Entry(root, width=5, textvariable=RemPhysPriceVar)
+RemAttPriceEntry = Entry(root, width=5, textvariable=RemAttPriceVar)
+RemCastPriceEntry = Entry(root, width=5, textvariable=RemCastPriceVar)
 
 RemSpeedPriceEntry.grid(row=2, column=5, padx=3)
 RemLifePriceEntry.grid(row=3, column=5)
@@ -162,15 +223,25 @@ RemAddPriceLabel = Label(root, text="$")
 RemAddAmountLabel.grid(row=1, column=7)
 RemAddPriceLabel.grid(row=1, column=8)
 
-RemAddSpeedCheck = Checkbutton(root, text="Speed", justify=LEFT)
-RemAddLifeCheck = Checkbutton(root, text="Life", justify=LEFT)
-RemAddFireCheck = Checkbutton(root, text="Fire", justify=LEFT)
-RemAddColdCheck = Checkbutton(root, text="Cold", justify=LEFT)
-RemAddLightCheck = Checkbutton(root, text="Lightning", justify=LEFT)
-RemAddChaosCheck = Checkbutton(root, text="Chaos", justify=LEFT)
-RemAddPhysCheck = Checkbutton(root, text="Physical", justify=LEFT)
-RemAddAttCheck = Checkbutton(root, text="Attack", justify=LEFT)
-RemAddCastCheck = Checkbutton(root, text="Caster", justify=LEFT)
+RemAddSpeedVar = IntVar()
+RemAddLifeVar = IntVar()
+RemAddFireVar = IntVar()
+RemAddColdVar = IntVar()
+RemAddLightVar = IntVar()
+RemAddChaosVar = IntVar()
+RemAddPhysVar = IntVar()
+RemAddAttVar = IntVar()
+RemAddCastVar = IntVar()
+
+RemAddSpeedCheck = Checkbutton(root, text="Speed", fg="#CFEDA5", variable=RemAddSpeedVar)
+RemAddLifeCheck = Checkbutton(root, text="Life", fg="#C96D6D", variable=RemAddLifeVar)
+RemAddFireCheck = Checkbutton(root, text="Fire", variable=RemAddFireVar)
+RemAddColdCheck = Checkbutton(root, text="Cold", variable=RemAddColdVar)
+RemAddLightCheck = Checkbutton(root, text="Lightning", variable=RemAddLightVar)
+RemAddChaosCheck = Checkbutton(root, text="Chaos", variable=RemAddChaosVar)
+RemAddPhysCheck = Checkbutton(root, text="Physical", variable=RemAddPhysVar)
+RemAddAttCheck = Checkbutton(root, text="Attack", variable=RemAddAttVar)
+RemAddCastCheck = Checkbutton(root, text="Caster", variable=RemAddCastVar)
 
 RemAddSpeedCheck.grid(row=2, column=6, padx=3, sticky=W)
 RemAddLifeCheck.grid(row=3, column=6, padx=3, sticky=W)
@@ -182,15 +253,25 @@ RemAddPhysCheck.grid(row=8, column=6, padx=3, sticky=W)
 RemAddAttCheck.grid(row=9, column=6, padx=3, sticky=W)
 RemAddCastCheck.grid(row=10, column=6, padx=3, sticky=W)
 
-RemAddSpeedAmountEntry = Entry(root, width=3)
-RemAddLifeAmountEntry = Entry(root, width=3)
-RemAddFireAmountEntry = Entry(root, width=3)
-RemAddColdAmountEntry = Entry(root, width=3)
-RemAddLightAmountEntry = Entry(root, width=3)
-RemAddChaosAmountEntry = Entry(root, width=3)
-RemAddPhysAmountEntry = Entry(root, width=3)
-RemAddAttAmountEntry = Entry(root, width=3)
-RemAddCastAmountEntry = Entry(root, width=3)
+RemAddSpeedAmountVar = StringVar()
+RemAddLifeAmountVar = StringVar()
+RemAddFireAmountVar = StringVar()
+RemAddColdAmountVar = StringVar()
+RemAddLightAmountVar = StringVar()
+RemAddChaosAmountVar = StringVar()
+RemAddPhysAmountVar = StringVar()
+RemAddAttAmountVar = StringVar()
+RemAddCastAmountVar = StringVar()
+
+RemAddSpeedAmountEntry = Entry(root, width=3, textvariable=RemAddSpeedAmountVar)
+RemAddLifeAmountEntry = Entry(root, width=3, textvariable=RemAddLifeAmountVar)
+RemAddFireAmountEntry = Entry(root, width=3, textvariable=RemAddFireAmountVar)
+RemAddColdAmountEntry = Entry(root, width=3, textvariable=RemAddColdAmountVar)
+RemAddLightAmountEntry = Entry(root, width=3, textvariable=RemAddLightAmountVar)
+RemAddChaosAmountEntry = Entry(root, width=3, textvariable=RemAddChaosAmountVar)
+RemAddPhysAmountEntry = Entry(root, width=3, textvariable=RemAddPhysAmountVar)
+RemAddAttAmountEntry = Entry(root, width=3, textvariable=RemAddAttAmountVar)
+RemAddCastAmountEntry = Entry(root, width=3, textvariable=RemAddCastAmountVar)
 
 RemAddSpeedAmountEntry.grid(row=2, column=7, padx=3)
 RemAddLifeAmountEntry.grid(row=3, column=7)
@@ -202,15 +283,25 @@ RemAddPhysAmountEntry.grid(row=8, column=7)
 RemAddAttAmountEntry.grid(row=9, column=7)
 RemAddCastAmountEntry.grid(row=10, column=7)
 
-RemAddSpeedPriceEntry = Entry(root, width=5)
-RemAddLifePriceEntry = Entry(root, width=5)
-RemAddFirePriceEntry = Entry(root, width=5)
-RemAddColdPriceEntry = Entry(root, width=5)
-RemAddLightPriceEntry = Entry(root, width=5)
-RemAddChaosPriceEntry = Entry(root, width=5)
-RemAddPhysPriceEntry = Entry(root, width=5)
-RemAddAttPriceEntry = Entry(root, width=5)
-RemAddCastPriceEntry = Entry(root, width=5)
+RemAddSpeedPriceVar = StringVar()
+RemAddLifePriceVar = StringVar()
+RemAddFirePriceVar = StringVar()
+RemAddColdPriceVar = StringVar()
+RemAddLightPriceVar = StringVar()
+RemAddChaosPriceVar = StringVar()
+RemAddPhysPriceVar = StringVar()
+RemAddAttPriceVar = StringVar()
+RemAddCastPriceVar = StringVar()
+
+RemAddSpeedPriceEntry = Entry(root, width=5, textvariable=RemAddSpeedPriceVar)
+RemAddLifePriceEntry = Entry(root, width=5, textvariable=RemAddLifePriceVar)
+RemAddFirePriceEntry = Entry(root, width=5, textvariable=RemAddFirePriceVar)
+RemAddColdPriceEntry = Entry(root, width=5, textvariable=RemAddColdPriceVar)
+RemAddLightPriceEntry = Entry(root, width=5, textvariable=RemAddLightPriceVar)
+RemAddChaosPriceEntry = Entry(root, width=5, textvariable=RemAddChaosPriceVar)
+RemAddPhysPriceEntry = Entry(root, width=5, textvariable=RemAddPhysPriceVar)
+RemAddAttPriceEntry = Entry(root, width=5, textvariable=RemAddAttPriceVar)
+RemAddCastPriceEntry = Entry(root, width=5, textvariable=RemAddCastPriceVar)
 
 RemAddSpeedPriceEntry.grid(row=2, column=8, padx=3)
 RemAddLifePriceEntry.grid(row=3, column=8)
@@ -224,5 +315,118 @@ RemAddCastPriceEntry.grid(row=10, column=8)
 
 RemAddGenerateButton = Button(root, text="Generate")
 RemAddGenerateButton.grid(row=11, column=6, columnspan=3)
+
+# Generate
+
+GeneratedText = scrolledtext.ScrolledText(root, height=10, width=60)
+
+GeneratedText.grid(row=12, column=0, columnspan=9, padx=5, pady=5)
+
+
+def aug_generate():
+    txt = "WTS Softcore\n\n***Augment***:\n"
+    GeneratedText.delete(1.0, END)
+
+    if AugSpeedVar.get() == 1:
+        txt = txt + "Speed [" + AugSpeedAmountVar.get() + "] - " + AugSpeedPriceVar.get() + "\n"
+
+    if AugLifeVar.get() == 1:
+        txt = txt + "Life [" + AugLifeAmountVar.get() + "] - " + AugLifePriceVar.get() + "\n"
+
+    if AugFireVar.get() == 1:
+        txt = txt + "Fire [" + AugFireAmountVar.get() + "] - " + AugFirePriceVar.get() + "\n"
+
+    if AugColdVar.get() == 1:
+        txt = txt + "Cold [" + AugColdAmountVar.get() + "] - " + AugColdPriceVar.get() + "\n"
+
+    if AugLightVar.get() == 1:
+        txt = txt + "Light [" + AugLightAmountVar.get() + "] - " + AugLightPriceVar.get() + "\n"
+
+    if AugChaosVar.get() == 1:
+        txt = txt + "Chaos [" + AugChaosAmountVar.get() + "] - " + AugChaosPriceVar.get() + "\n"
+
+    if AugPhysVar.get() == 1:
+        txt = txt + "Physical [" + AugPhysAmountVar.get() + "] - " + AugPhysPriceVar.get() + "\n"
+
+    if AugAttVar.get() == 1:
+        txt = txt + "Attack [" + AugAttAmountVar.get() + "] - " + AugAttPriceVar.get() + "\n"
+
+    if AugCastVar.get() == 1:
+        txt = txt + "Caster [" + AugCastAmountVar.get() + "] - " + AugCastPriceVar.get() + "\n"
+
+    GeneratedText.insert(INSERT, txt)
+
+
+def rem_generate():
+    txt = "WTS Softcore\n\n***Remove***:\n"
+    GeneratedText.delete(1.0, END)
+
+    if RemSpeedVar.get() == 1:
+        txt = txt + "Speed [" + RemSpeedAmountVar.get() + "] - " + RemSpeedPriceVar.get() + "\n"
+
+    if RemLifeVar.get() == 1:
+        txt = txt + "Life [" + RemLifeAmountVar.get() + "] - " + RemLifePriceVar.get() + "\n"
+
+    if RemFireVar.get() == 1:
+        txt = txt + "Fire [" + RemFireAmountVar.get() + "] - " + RemFirePriceVar.get() + "\n"
+
+    if RemColdVar.get() == 1:
+        txt = txt + "Cold [" + RemColdAmountVar.get() + "] - " + RemColdPriceVar.get() + "\n"
+
+    if RemLightVar.get() == 1:
+        txt = txt + "Light [" + RemLightAmountVar.get() + "] - " + RemLightPriceVar.get() + "\n"
+
+    if RemChaosVar.get() == 1:
+        txt = txt + "Chaos [" + RemChaosAmountVar.get() + "] - " + RemChaosPriceVar.get() + "\n"
+
+    if RemPhysVar.get() == 1:
+        txt = txt + "Physical [" + RemPhysAmountVar.get() + "] - " + RemPhysPriceVar.get() + "\n"
+
+    if RemAttVar.get() == 1:
+        txt = txt + "Attack [" + RemAttAmountVar.get() + "] - " + RemAttPriceVar.get() + "\n"
+
+    if RemCastVar.get() == 1:
+        txt = txt + "Caster [" + RemCastAmountVar.get() + "] - " + RemCastPriceVar.get() + "\n"
+
+    GeneratedText.insert(INSERT, txt)
+
+
+def rem_add_generate():
+    txt = "WTS Softcore\n\n***Remove/Add***:\n"
+    GeneratedText.delete(1.0, END)
+
+    if RemAddSpeedVar.get() == 1:
+        txt = txt + "Speed [" + RemAddSpeedAmountVar.get() + "] - " + RemAddSpeedPriceVar.get() + "\n"
+
+    if RemAddLifeVar.get() == 1:
+        txt = txt + "Life [" + RemAddLifeAmountVar.get() + "] - " + RemAddLifePriceVar.get() + "\n"
+
+    if RemAddFireVar.get() == 1:
+        txt = txt + "Fire [" + RemAddFireAmountVar.get() + "] - " + RemAddFirePriceVar.get() + "\n"
+
+    if RemAddColdVar.get() == 1:
+        txt = txt + "Cold [" + RemAddColdAmountVar.get() + "] - " + RemAddColdPriceVar.get() + "\n"
+
+    if RemAddLightVar.get() == 1:
+        txt = txt + "Light [" + RemAddLightAmountVar.get() + "] - " + RemAddLightPriceVar.get() + "\n"
+
+    if RemAddChaosVar.get() == 1:
+        txt = txt + "Chaos [" + RemAddChaosAmountVar.get() + "] - " + RemAddChaosPriceVar.get() + "\n"
+
+    if RemAddPhysVar.get() == 1:
+        txt = txt + "Physical [" + RemAddPhysAmountVar.get() + "] - " + RemAddPhysPriceVar.get() + "\n"
+
+    if RemAddAttVar.get() == 1:
+        txt = txt + "Attack [" + RemAddAttAmountVar.get() + "] - " + RemAddAttPriceVar.get() + "\n"
+
+    if RemAddCastVar.get() == 1:
+        txt = txt + "Caster [" + RemAddCastAmountVar.get() + "] - " + RemAddCastPriceVar.get() + "\n"
+
+    GeneratedText.insert(1.0, txt)
+
+
+AugGenerateButton.config(command=aug_generate)
+RemGenerateButton.config(command=rem_generate)
+RemAddGenerateButton.config(command=rem_add_generate)
 
 root.mainloop()
